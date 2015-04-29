@@ -1,0 +1,39 @@
+<template name="layout">
+<head>
+  <title>cobe-meteor</title>
+</head>
+
+<body>
+	<div class="title">
+	  <h1>Cobe Test</h1>
+	</div>
+  {{> yield}}
+</body>
+</template>
+<template name="main">
+ 
+{{> loginButtons}}
+
+
+<h3>Find all <a href="/users">users</a></h3>
+
+</template>
+
+<template name="users">
+	{{#each users}}
+	<a href='user/{{_id}}'>
+	<div class="card">
+		<p>{{profile.name}}</p>
+		<p>{{services.google.email}}</p>
+	</div>
+	</a>
+	{{/each}}
+</template>
+
+<template name="user">
+	<div class="container">
+		<p>{{this.profile.name}}</p>
+		<p>{{this.services.google.email}}</p>
+		<img src="{{this.services.google.picture}}" alt="">
+	</div>
+</template>
