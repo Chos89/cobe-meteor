@@ -11,11 +11,23 @@
 </body>
 </template>
 <template name="main">
+
  
 {{> loginButtons}}
 
+{{#if registered}}
+
+<h2>Please select your birthday: </h2>
+
+<form>
+	<!-- <input name="date" type="text" id="datepicker"> -->
+	<input name="date" type="text" class="form-control" id="my-datepicker">
+	<input for="date" type="submit">
+</form>
 
 <h3>Find all <a href="/users">users</a></h3>
+
+{{/if}}
 
 </template>
 
@@ -32,8 +44,9 @@
 
 <template name="user">
 	<div class="container">
-		<p>{{this.profile.name}}</p>
-		<p>{{this.services.google.email}}</p>
+		<p>Name: {{this.profile.name}}</p>
+		<p>Email: {{this.services.google.email}}</p>
+		<p>Birthday: {{this.profile.birthday}}</p>
 		<img src="{{this.services.google.picture}}" alt="">
 	</div>
 </template>

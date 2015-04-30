@@ -19,7 +19,6 @@ Router.route('/users', function () {
 Router.route('/user/:_id', function () {
 	if (Meteor.user()) {
 	  var user = Meteor.users.findOne({_id: this.params._id});
-	  console.log(user)
 	  this.render('user', {data: user});
   } else {
   	swal('Please log in to continue')
